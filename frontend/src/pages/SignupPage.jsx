@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 
-const BACKEND_URL = 'https://yubo-backend.onrender.com';
+const BACKEND_URL = 'https://yubo-prototype.onrender.com';
 
 export default function SignupPage() {
   const [name, setName] = useState('');
