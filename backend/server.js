@@ -1,17 +1,10 @@
-require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
-const helmet = require('helmet');
-const authRoutes = require('./routes/auth');
-const profileRoutes = require('./routes/profiles');
-const chatRoutes = require('./routes/chat');
+const bodyParser = require('body-parser');
 const app = express();
 app.use(cors());
-app.use(helmet());
-app.use(express.json());
-app.use('/api/auth', authRoutes);
-app.use('/api/profiles', profileRoutes);
-app.use('/api/chat', chatRoutes);
-app.use((err,req,res,next)=>{ console.error(err.stack); res.status(500).json({message:'Server error'}); });
-const PORT = process.env.PORT || 5000;
-app.listen(PORT,()=>console.log('Backend running on port '+PORT));
+app.use(bodyParser.json());
+
+app.get('/',(req,res)=>{res.send('Backend is working');});
+
+app.listen(3001,()=>console.log('Backend running on port 3001'));
