@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 
-const BACKEND_URL = 'https://yubo-backend.onrender.com';
+const BACKEND_URL = 'https://yubo-prototype.onrender.com';
 
 export default function SwipePage() {
   const [profiles, setProfiles] = useState([]);
