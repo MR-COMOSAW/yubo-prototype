@@ -1,0 +1,3 @@
+const { pool } = require('../models/db');
+exports.getProfiles = async(req,res)=>{ try{ const result = await pool.query('SELECT * FROM users LIMIT 20'); res.json(result.rows);} catch(err){console.error(err); res.status(500).json({message:'Error fetching profiles'});} };
+exports.getMyProfile = async(req,res)=>{ try{ res.json({name:'Demo User',email:'demo@example.com',age:20,bio:'Hello!'});} catch(err){res.status(500).json({message:'Error'});} };

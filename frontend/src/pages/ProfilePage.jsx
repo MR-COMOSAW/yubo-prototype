@@ -1,0 +1,3 @@
+import React,{useEffect,useState} from 'react';
+import axios from 'axios';
+export default function ProfilePage(){const [profile,setProfile]=useState(null);useEffect(()=>{axios.get('https://DIN_BACKEND_URL/api/profiles/me').then(r=>setProfile(r.data)).catch(e=>console.log(e));},[]);if(!profile)return <div>Loading...</div>;return(<div><h1>{profile.name}'s Profile</h1><p>Email: {profile.email}</p><p>Age: {profile.age || 'N/A'}</p><p>Bio: {profile.bio || 'No bio yet'}</p></div>);}

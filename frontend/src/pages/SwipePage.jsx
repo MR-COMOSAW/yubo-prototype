@@ -1,0 +1,3 @@
+import React,{useEffect,useState} from 'react';
+import axios from 'axios';
+export default function SwipePage(){const [profiles,setProfiles]=useState([]);const [index,setIndex]=useState(0);useEffect(()=>{axios.get('https://DIN_BACKEND_URL/api/profiles').then(r=>setProfiles(r.data)).catch(e=>console.log(e));},[]);const like=()=>setIndex(i=>i+1);const skip=()=>setIndex(i=>i+1);if(!profiles.length) return <div>Loading...</div>; if(index>=profiles.length) return <div>No more profiles</div>; const p=profiles[index]; return (<div><h2>{p.name}, {p.age}</h2><p>{p.bio}</p><button onClick={skip}>Skip</button><button onClick={like}>Like</button></div>);}
