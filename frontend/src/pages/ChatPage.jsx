@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 
-const BACKEND_URL = 'https://yubo-backend.onrender.com';
+const BACKEND_URL = 'https://yubo-prototype.onrender.com';
 
 export default function ChatPage() {
   const [messages, setMessages] = useState([]);
@@ -32,4 +32,8 @@ export default function ChatPage() {
           <p key={i}><strong>{m.user}:</strong> {m.text}</p>
         ))}
       </div>
-      <input type="text" value={text} onChange={e => setText(e.target
+      <input type="text" value={text} onChange={e => setText(e.target.value)} placeholder="Message" />
+      <button onClick={sendMessage}>Send</button>
+    </div>
+  );
+}
